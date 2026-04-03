@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
         life = 3;
     }
 
-    public void AddScore()
+    public void AddScore(int amount)
     {
-        score++;
+        score += amount;
     }
 
     public void LoseScore()

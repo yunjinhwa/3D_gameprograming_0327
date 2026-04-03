@@ -123,7 +123,17 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("star"))
         {
-            GameManager.Instance.AddScore();
+            StarItem starItem = collision.GetComponent<StarItem>();
+
+            if (starItem != null)
+            {
+                GameManager.Instance.AddScore(starItem.scoreValue);
+            }
+            else
+            {
+                GameManager.Instance.AddScore(1);
+            }
+
             collision.gameObject.SetActive(false);
             score.text = "Score: " + GameManager.Instance.CurrentScore;
         }
